@@ -1,21 +1,26 @@
 import React from "react";
 
-export default function Temperature() {
-  return (
-    <div class="col-6 d-flex">
-      <div class="weather-temperature d-flex align-items-center">
-        <img
-          src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-          alt="clouds"
-          id="icon"
-        />
-        <div>
-          <strong id="temperature">14</strong>
-          <span class="units" id="celsius-convert">
-            °C
-          </span>
+export default function Temperature(props) {
+  if (props && props.data) {
+    return (
+      <div className="col-6 d-flex">
+        <div className="weather-temperature d-flex align-items-center">
+          <img
+            src={
+              "http://openweathermap.org/img/w/" +
+              props.data.weather[0].icon +
+              ".png"
+            }
+            alt="Weather Icon"
+          />
+          <div>
+            <strong>{Math.round(props.data.main.temp)}</strong>
+            <span className="units" id="celsius-convert">
+              °C
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else return "";
 }

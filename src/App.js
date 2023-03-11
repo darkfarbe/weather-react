@@ -1,24 +1,17 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import LocationSearch from "./components/LocationSearch";
-import CurrentDate from "./components/CurrentDate";
-import HumidityWind from "./components/HumidityWind";
-import Temperature from "./components/Temperature";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
         <div className="weather-app-wrapper">
-          <div className="weather-app">
-            <LocationSearch />
-            <CurrentDate />
-
-            <div className="row align-items-center">
-              <Temperature />
-              <HumidityWind />
-            </div>
-          </div>
+          <LocationSearch />
+          <a href="https://github.com/darkfarbe/weather-react">
+            Open-source code
+          </a>
+          by Ximena Ruiz
         </div>
       </div>
     </div>
