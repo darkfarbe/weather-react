@@ -8,7 +8,11 @@ function App() {
       <div className="container">
         <div className="weather-app-wrapper">
           <LocationSearch />
-          <a href="https://github.com/darkfarbe/weather-react" target="_blank">
+          <a
+            href="https://github.com/darkfarbe/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open-source code
           </a>
           by Ximena Ruiz
