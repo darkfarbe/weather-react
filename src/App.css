@@ -46,3 +46,7 @@ li {
   font-weight: 100;
   line-height: 19px;
 }
+
+.units > a {
+  text-decoration: none;
+}

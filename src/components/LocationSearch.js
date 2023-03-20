@@ -15,6 +15,8 @@ export default function LocationSearch() {
     },
     weather: [{ description: "overcast clouds", icon: "03d" }],
     name: "New York",
+
+    dt: new Date().getTime(),
   });
 
   function handleSubmit(event) {

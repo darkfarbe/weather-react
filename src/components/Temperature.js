@@ -1,4 +1,5 @@
 import React from "react";
+import TempSwitch from "./TempSwitch";
 
 export default function Temperature(props) {
   if (props && props.data) {
@@ -14,10 +15,7 @@ export default function Temperature(props) {
             alt="Weather Icon"
           />
           <div>
-            <strong>{Math.round(props.data.main.temp)}</strong>
-            <span className="units" id="celsius-convert">
-              °C
-            </span>
+            <TempSwitch temp={props.data.main.temp} />
           </div>
         </div>
       </div>

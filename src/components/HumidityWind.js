@@ -9,8 +9,9 @@ export default function HumidityWind(props) {
             Humidity: <span id="humidity">{props.data.main.humidity}</span>%
           </li>
           <li>
-            Wind: <span id="wind">{Math.round(props.data.wind.speed)} </span>{" "}
-            m/s
+            Wind:{" "}
+            <span id="wind">{Math.round(props.data.wind.speed * 3.6)} </span>{" "}
+            km/h
           </li>
         </ul>
       </div>
