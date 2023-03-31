@@ -1,16 +1,15 @@
 import React from "react";
 
 export default function CurrentDate(props) {
-  console.log(props);
   if (props && props.data) {
     return (
       <div className="overview">
         <h1 id="city" className="cityName mb-1">
-          {props.data.name}
+          {props.data.city}
         </h1>
         <ul>
           <li id="date">{FormattedDate(props.data.dt)}</li>
-          <li id="description"> {props.data.weather[0].description}</li>
+          <li id="description"> {props.data.condition.description}</li>
         </ul>
       </div>
     );

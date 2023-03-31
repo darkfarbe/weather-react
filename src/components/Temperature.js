@@ -6,16 +6,9 @@ export default function Temperature(props) {
     return (
       <div className="col-6 d-flex">
         <div className="weather-temperature d-flex align-items-center">
-          <img
-            src={
-              "http://openweathermap.org/img/w/" +
-              props.data.weather[0].icon +
-              ".png"
-            }
-            alt="Weather Icon"
-          />
+          <img src={props.data.condition.icon_url} alt="Weather Icon" />
           <div>
-            <TempSwitch temp={props.data.main.temp} />
+            <TempSwitch temp={props.data.temperature.current} />
           </div>
         </div>
       </div>

@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import CurrentDate from "./CurrentDate";
 import HumidityWind from "./HumidityWind";
 import Temperature from "./Temperature";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 
 export default function LocationSearch() {
   const [dataFromAPI, setDataFromAPI] = useState({
-    main: {
-      temp: 21,
-      humidity: 80,
-    },
     wind: {
       speed: 7,
     },
-    weather: [{ description: "overcast clouds", icon: "03d" }],
-    name: "New York",
+    condition: {
+      description: "overcast clouds",
+      icon_url:
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png",
+    },
+    city: "New York",
+    temperature: {
+      current: 21,
+      humidity: 80,
+    },
 
     dt: new Date().getTime(),
   });
@@ -22,12 +27,14 @@ export default function LocationSearch() {
   function handleSubmit(event) {
     event.preventDefault();
     let el = document.getElementById("city-input");
+    let apiKey = "fbde5cao1a5748d107tcc6736273f093";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${el.value}&key=${apiKey}&units=metric`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${el.value}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
-    axios.get(url).then(getDisplayData);
+    axios.get(apiUrl).then(getDisplayData);
   }
 
   function getDisplayData(response) {
-    console.log(response.data);
+    console.log(response);
     setDataFromAPI(response.data);
   }
 
@@ -63,6 +70,7 @@ export default function LocationSearch() {
         <CurrentDate data={dataFromAPI} />
         <Temperature data={dataFromAPI} />
         <HumidityWind data={dataFromAPI} />
+        <WeatherForecast data={dataFromAPI} />
       </div>
     </div>
   );

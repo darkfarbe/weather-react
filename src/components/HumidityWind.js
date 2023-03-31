@@ -6,7 +6,8 @@ export default function HumidityWind(props) {
       <div className="col-6">
         <ul>
           <li>
-            Humidity: <span id="humidity">{props.data.main.humidity}</span>%
+            Humidity:{" "}
+            <span id="humidity">{props.data.temperature.humidity}</span>%
           </li>
           <li>
             Wind:{" "}
