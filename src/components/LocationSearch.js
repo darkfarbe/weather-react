@@ -20,22 +20,35 @@ export default function LocationSearch() {
       current: 21,
       humidity: 80,
     },
-
+    coordinates: {
+      longitude: 13.0001566,
+      latitude: 55.6052931,
+    },
     dt: new Date().getTime(),
   });
 
+  const [dataFromCoords, setDataFromCoords] = useState();
+  const apiKey = "fbde5cao1a5748d107tcc6736273f093";
   function handleSubmit(event) {
     event.preventDefault();
     let el = document.getElementById("city-input");
-    let apiKey = "fbde5cao1a5748d107tcc6736273f093";
+
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${el.value}&key=${apiKey}&units=metric`;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${el.value}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
     axios.get(apiUrl).then(getDisplayData);
   }
 
   function getDisplayData(response) {
     console.log(response);
     setDataFromAPI(response.data);
+    const coordinates = response.data.coordinates;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(getForecast);
+  }
+
+  function getForecast(response) {
+    console.log(response);
+    setDataFromCoords(response.data.daily);
   }
 
   return (
@@ -70,7 +83,7 @@ export default function LocationSearch() {
         <CurrentDate data={dataFromAPI} />
         <Temperature data={dataFromAPI} />
         <HumidityWind data={dataFromAPI} />
-        <WeatherForecast data={dataFromAPI} />
+        <WeatherForecast data={dataFromAPI} forecast={dataFromCoords} />
       </div>
     </div>
   );

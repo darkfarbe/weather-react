@@ -1,7 +1,7 @@
 import React from "react";
 import "../WeatherForecast.css";
 
-export default function WeatherForecast() {
+export default function WeatherForecast(props) {
   return (
     <div className="WeatherForecast">
       <div className="row">
