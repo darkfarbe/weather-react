@@ -27,7 +27,8 @@ export default function LocationSearch() {
     dt: new Date().getTime(),
   });
 
-  const [dataFromCoords, setDataFromCoords] = useState();
+  const [dataFromCoords, setDataFromCoords] = useState(null);
+
   const apiKey = "fbde5cao1a5748d107tcc6736273f093";
   function handleSubmit(event) {
     event.preventDefault();

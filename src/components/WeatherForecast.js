@@ -1,19 +1,17 @@
 import React from "react";
 import "../WeatherForecast.css";
+import ForecastDay from "./ForecastDay";
 
 export default function WeatherForecast(props) {
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div className="WeatherForecast-day"> Thu </div>
-          <img />
-          <div className="WeatherForecast-temperatures">
-            <span className="WeatherForecast-temperature-max">19 </span>
-            <span className="WeatherForecaste-temperature-min">10 </span>
+  if (props.forecast) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          <div className="col">
+            <ForecastDay data={props.forecast[0]} />
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else return "";
 }

@@ -17,23 +17,11 @@ export default function CurrentDate(props) {
 }
 
 function FormattedDate(props) {
-  let weekDays = {
-    0: "Sunday",
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-  };
-  let today = new Date();
-  let day = today.getDay();
-  let hour = today.getHours();
-  let minutes = today.getMinutes();
+  let time = new Intl.DateTimeFormat("en-UK", {
+    weekday: "long",
+    hour: "numeric",
+    minute: "numeric",
+  }).format(new Date());
 
-  return (
-    <div>
-      {weekDays[day]} {hour}:{minutes}
-    </div>
-  );
+  return <div>{time}</div>;
 }
