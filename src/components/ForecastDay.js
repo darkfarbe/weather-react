@@ -1,5 +1,3 @@
-import react from "react";
-
 export default function ForecastDay(props) {
   function day() {
     let date = new Date(props.data.time * 1000);
