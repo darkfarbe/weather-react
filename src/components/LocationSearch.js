@@ -56,7 +56,7 @@ export default function LocationSearch() {
     <div className="weather-app">
       <form id="search-form" className="mb-3" onSubmit={handleSubmit}>
         <div className="row">
-          <div className="col-8">
+          <div className="col-9">
             <input
               type="search"
               placeholder="Write a city"
@@ -64,19 +64,12 @@ export default function LocationSearch() {
               id="city-input"
             />
           </div>
-          <div className="col-2">
+          <div className="col-3">
             <input
               type="submit"
               value="Search"
               className="btn btn-primary w-100"
             />
-          </div>
-          <div className="col-2">
-            <button id="myLocation" className="btn btn-success">
-              <span title="My location">
-                <i className="fa-solid fa-location-crosshairs"></i>
-              </span>
-            </button>
           </div>
         </div>
       </form>
